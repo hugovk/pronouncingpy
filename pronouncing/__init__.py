@@ -26,6 +26,7 @@ def parse_cmu(cmufh):
         line = line.strip().decode('latin1')
         if line.startswith(';'):
             continue
+        line = line.replace(" ", "  ", 1)  # replace first occurence
         word, phones = line.split("  ")
         pronunciations.append((word.split('(', 1)[0].lower(), phones))
     return pronunciations
